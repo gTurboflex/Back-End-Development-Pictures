@@ -11,9 +11,8 @@ The course fixture contains ten pictures. Data is held in memory and resets on r
 
 ## Run and test
 ```sh
-python -m venv .venv
-. .venv/bin/activate
-pip install -r requirements.txt
+bash bin/setup.sh
+. backend-pics-venv/bin/activate
 python -m pytest -v
 flask --app app run --host 0.0.0.0 --port 3000
 ```
@@ -27,7 +26,12 @@ docker run --rm -p 3000:3000 pictures:1
 
 ## Environment Setup
 The project starts from the IBM Skills Network course template, retaining its license.
-The original `bin/setup.sh` describes the Linux lab setup. For the current environment,
-create a virtual environment and install `requirements.txt`. Containers use Python 3.9.16.
+Run `bash bin/setup.sh` to create the required `backend-pics-venv` environment and install the pinned dependencies. The script exits on errors and prints its completion status. Containers use Python 3.9.16.
 Local validation used Python 3.12. Cloud IDE provides Python 3.10.12.
 Do not commit `.env`, database files, generated users, or registry credentials.
+
+## Verified setup — 6 November 2026
+`bash bin/setup.sh` completed successfully in the IBM cloud laboratory using Python 3.10.12.
+The required `backend-pics-venv` virtual environment was created, dependencies installed, and the Flask import check passed.
+The command returned exit status 0; its complete terminal transcript is retained with the submission evidence.
+All 11 original Pictures tests passed.
